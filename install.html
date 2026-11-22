@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080b12">
+<meta name="description" content="Learn how to get started with iOSS on your iPhone or iPad.">
+<title>Installation — iOSS</title>
+
+<style>
+:root{
+  --bg:#080b12;
+  --surface:#111722;
+  --border:rgba(255,255,255,.09);
+  --text:#f4f7fc;
+  --muted:#9ba8bc;
+  --faint:#68778e;
+  --blue:#3185f5;
+  --cyan:#55c4ff;
+  --gradient:linear-gradient(135deg,#2876ef,#4bbcff);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+  margin:0;min-height:100vh;color:var(--text);
+  background:radial-gradient(ellipse at 50% -15%,rgba(35,104,210,.19),transparent 55%),var(--bg);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(100% - 40px,900px);margin:auto}
+
+/* Navigation */
+.navbar{
+  position:sticky;top:0;z-index:10;
+  border-bottom:1px solid var(--border);
+  background:rgba(8,11,18,.82);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:800}
+.brand-icon{
+  width:38px;height:38px;display:grid;place-items:center;
+  border-radius:12px;background:linear-gradient(145deg,#172c4b,#0e1727);
+  border:1px solid rgba(95,168,255,.25);color:#65baff;font-size:22px;font-weight:900;
+}
+.nav-links{display:flex;gap:25px;color:var(--muted);font-size:13px;font-weight:600}
+.nav-links a:hover{color:white}
+
+/* Main */
+main{padding:85px 0 70px}
+.eyebrow{
+  display:inline-block;padding:6px 12px;
+  border:1px solid rgba(72,157,255,.2);
+  border-radius:999px;color:#79bdff;
+  background:rgba(40,115,220,.09);
+  font-size:11px;font-weight:800;letter-spacing:1px;
+}
+h1{margin:22px 0 12px;font-size:clamp(38px,7vw,58px);line-height:1.1;letter-spacing:-2.5px}
+.gradient-text{
+  background:linear-gradient(90deg,#5d9cff,#64d3ff);
+  background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.intro{max-width:600px;color:var(--muted);font-size:16px}
+.status{
+  margin-top:35px;padding:30px;
+  border:1px solid rgba(72,157,255,.2);
+  border-radius:22px;
+  background:linear-gradient(135deg,rgba(40,115,220,.12),rgba(17,23,34,.8));
+}
+.status-label{font-size:11px;font-weight:800;letter-spacing:1px;color:#79bdff}
+.status h2{margin:10px 0;font-size:25px}
+.status p{margin:0;color:var(--muted);font-size:14px}
+.section-title{margin:55px 0 22px;font-size:25px;letter-spacing:-.7px}
+.steps{display:grid;gap:15px}
+.step{
+  display:flex;gap:20px;align-items:flex-start;
+  padding:24px;background:var(--surface);
+  border:1px solid var(--border);border-radius:18px;
+}
+.number{
+  flex-shrink:0;width:38px;height:38px;
+  display:grid;place-items:center;border-radius:12px;
+  background:rgba(49,133,245,.13);color:#72bcff;font-weight:800;
+}
+.step h3{margin:0 0 5px;font-size:16px}
+.step p{margin:0;color:var(--muted);font-size:13px}
+.notice{
+  margin-top:25px;padding:20px;
+  border:1px solid rgba(230,173,73,.2);
+  border-radius:15px;background:rgba(230,173,73,.05);
+  color:#cbb88f;font-size:13px;
+}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.button{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:48px;padding:0 22px;border-radius:14px;
+  font-size:13px;font-weight:750;transition:.2s;
+}
+.primary{background:var(--gradient);color:white}
+.secondary{border:1px solid var(--border);background:rgba(255,255,255,.035)}
+.button:hover{transform:translateY(-2px);filter:brightness(1.1)}
+
+/* Footer */
+footer{margin-top:40px;border-top:1px solid var(--border);padding:30px 0}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-copy,.footer-links{font-size:12px;color:var(--faint)}
+.footer-links{display:flex;gap:20px}
+.footer-links a:hover{color:white}
+
+@media(max-width:650px){
+  main{padding-top:65px}
+  .nav-links{gap:13px;font-size:11px}
+  .step{padding:19px;gap:13px}
+  .footer-inner{justify-content:center;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">i</span>
+      <span>iOSS</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#about">About</a>
+      <a href="install.html">Install</a>
+      <a href="https://github.com/iPhoneOpenSourceStore" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+
+  <span class="eyebrow">GETTING STARTED</span>
+
+  <h1>
+    Get started with<br>
+    <span class="gradient-text">iOSS.</span>
+  </h1>
+
+  <p class="intro">
+    Your gateway to open source applications
+    for iPhone and iPad.
+    Learn about the planned installation process.
+  </p>
+
+  <div class="status">
+    <div class="status-label">CURRENT STATUS</div>
+    <h2>iOSS is coming soon.</h2>
+    <p>
+      We are working on the iOSS application
+      and its installation system.
+      The official installer is not available yet.
+    </p>
+
+    <div class="actions">
+      <a class="button primary"
+         href="https://github.com/iPhoneOpenSourceStore"
+         target="_blank" rel="noopener noreferrer">
+        Follow Development ↗
+      </a>
+      <a class="button secondary" href="index.html">
+        Back to Home
+      </a>
+    </div>
+  </div>
+
+  <h2 class="section-title">How installation will work</h2>
+
+  <div class="steps">
+
+    <article class="step">
+      <div class="number">01</div>
+      <div>
+        <h3>Prepare your iPhone or iPad</h3>
+        <p>
+          Check device compatibility and prepare
+          a supported installation method.
+        </p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="number">02</div>
+      <div>
+        <h3>Install a supported signing tool</h3>
+        <p>
+          Initial installation may use tools such as
+          SideStore or AltStore, depending on compatibility.
+        </p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="number">03</div>
+      <div>
+        <h3>Install iOSS</h3>
+        <p>
+          Once the official iOSS installer is released,
+          follow the published installation instructions.
+        </p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="number">04</div>
+      <div>
+        <h3>Discover open source applications</h3>
+        <p>
+          Sign in to your iOSS account and explore
+          the application catalog directly from the app.
+        </p>
+      </div>
+    </article>
+
+  </div>
+
+  <h2 class="section-title">Installation &amp; signing</h2>
+
+  <div class="steps">
+    <article class="step">
+      <div class="number">✓</div>
+      <div>
+        <h3>App signing</h3>
+        <p>
+          Installation requires a compatible signing
+          method and valid credentials.
+        </p>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="number">↻</div>
+      <div>
+        <h3>App refresh</h3>
+        <p>
+          We plan to provide guidance for refreshing
+          installed applications through supported tools.
+        </p>
+      </div>
+    </article>
+  </div>
+
+  <div class="notice">
+    <strong>Important:</strong>
+    iOSS is an independent project and is not affiliated
+    with Apple Inc. Signing availability, installation
+    methods and device compatibility depend on Apple's
+    current policies and the tools being used.
+    Never install applications from untrusted sources
+    or share your Apple Account credentials with
+    untrusted services.
+  </div>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-copy">
+      © 2026 iOSS. Open source, open to everyone.
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#about">About</a>
+      <a href="https://github.com/iPhoneOpenSourceStore" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
